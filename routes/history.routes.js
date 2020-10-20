@@ -3,6 +3,15 @@ const router=Router();
 
 const History=require('../models/History');
 
+router.get('/',(req,res)=>{
+			const city=req.query.city;
+			History.find({city:city},(err,item)=>{
+				if(err)return res.status(400).send(err);
+				console.log('item is',item);
+				res.send(item);
+			})
+		});
+
 router.post('/add',
 	async(req,res)=>{
 		try{
