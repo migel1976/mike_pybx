@@ -1,4 +1,5 @@
 import * as axios from 'axios';
+import {message} from 'antd';
 
 const instance=axios.create({
       baseURL:"http://localhost:5000/history"
@@ -15,7 +16,9 @@ const HistoryApi={
 	setItems(body){
 		return instance.post('add',body)
 			.then((res)=>{
+				debugger;
 				console.log('data was success added',res.data);
+				message.success('data was success added to mongodb');
 			})
 	}
 };

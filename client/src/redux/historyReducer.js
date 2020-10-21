@@ -23,7 +23,7 @@ export const getHistoryItems=(city)=>{
 		return (dispatch)=>{
 			HistoryApi.getItemsByCity(city)
 				.then(res=>{
-					debugger;
+					// debugger;
 					dispatch(setItems(res));
 				})
 		}

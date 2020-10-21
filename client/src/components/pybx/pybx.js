@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import * as axios from 'axios';
+import {Button} from 'antd';
 // import {useHttp} from './hooks/http.hook';
 // import {useMessage} from './hooks/message.hook';
 import {
@@ -78,6 +79,7 @@ function Pybx() {
     const [columns, setColumns] = useState([]);
     const [rows, setRows] = useState([]);
     const [columnOrder, setColumnOrder] = useState([]);
+	const [countUpdateData,setCountUpdateData]=useState(0);
 
     React.useEffect(() => {
 	let ws_url = "ws://localhost:8080/";
@@ -95,11 +97,19 @@ function Pybx() {
 
 	React.useEffect(()=>{
 		console.log('rows is ',rows);	
-
 	},[rows]);
 
-    const onClick = () => {
-	blotter_rop.current.get_df().then(df => {
+	React.useEffect(()=>{
+		debugger;
+		if(update_c!==0 && countUpdateData===1){
+			updateData();
+		}
+		let count=countUpdateData+1;
+		setCountUpdateData(count);
+	},[update_c]);
+
+    const updateData = () => {
+	  blotter_rop.current.get_df().then(df => {
 	    console.log("onClick:", df);
 	    set_update_c(df.update_c);
 	    setColumns(df.df.columns.map(x => { return {name: x}; }));
@@ -107,9 +117,9 @@ function Pybx() {
 	    let df_rows = JSON.parse(df.df.dataframeJSON)
 		console.log('data-row',df_rows);
 	    setRows(df_rows);
-	}).
-    catch(err=>alert('не смог достучаться до сервера'));
-	}
+	   })
+	};
+	
 
     return (<div className='container'>
 		{/*<div className="card">*/}
@@ -127,9 +137,9 @@ function Pybx() {
 		{/*<VirtualTable cellComponent={CustomCell} />*/}
 	    </Grid>
 	    </div>
-	    <h1>{update_c}</h1>
-		<button onClick={onClick}>PRESS</button>
-		<button onClick={setData}>Save Data</button>
+		{/*<h1>{update_c}</h1>*/}
+		{/*<Button onClick={onClick}>PRESS</Button>*/}
+		<Button onClick={setData}>Save Data</Button>
 	    </div>);
 }
 
