@@ -3,6 +3,15 @@ const router=Router();
 
 const History=require('../models/History');
 
+router.get('/list-city',(req,res)=>{
+			History.find().distinct('city',(err,item)=>{
+				if(err)return res.status(400).send(err);
+				console.log('item in query /list-city is', item);
+				res.send(item);
+			})
+				// MyModel.find().distinct('_id', function(error, ids) {
+});
+
 router.get('/',(req,res)=>{
 			const city=req.query.city;
 			History.find({city:city},(err,item)=>{
