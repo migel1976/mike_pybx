@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import StatContainer from '../statistic/stat-container';
+import Temp from '../temp/temp';
 import Pybx from '../pybx/pybx';
 
 // import BeaconContainer from '../beacon/beacon-container.js';
@@ -10,7 +11,8 @@ import Pybx from '../pybx/pybx';
 const Routes=()=>{
 	return(
 		<Switch>
-			<Route path='/data/stat' render={()=><StatContainer city={'Boston'} />} />
+			<Route path='/data/stat' render={()=><StatContainer city={'Albany'} />} />
+			{/*<Route path='/data/temp' render={()=><Temp />} />*/}
 			<Route path='/data/pybx' component={Pybx} />
 			{/*<Route path='/config/beacon' component={BeaconContainer} />*/}
 			{/*<Route path='/config/report-link' component={ReportLinkContainer} />*/}

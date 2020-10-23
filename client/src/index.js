@@ -4,7 +4,9 @@ import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 import store from './redux/store';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.js'; 
 import '@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css';
+
 // import App from './App.js';
 import App from './components/app/app.js';
 

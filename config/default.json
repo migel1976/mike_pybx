@@ -1,4 +1,5 @@
 {
 	"port":5000,
-  "mongoUri":"mongodb://localhost/pybx"
+  "mongoUri":"mongodb://localhost/pybx",
+  "cloudMongoUri":"mongodb+srv://mern:mern@cluster0-35utu.azure.mongodb.net/pybx?retryWrites=true&w=majority"
 }

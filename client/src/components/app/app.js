@@ -1,20 +1,21 @@
 import React from 'react';
-// import Header from '../header/header';
-import Navbar from '../navbar/navbar';
-import BaseLayout from '../../layouts/base-layout';
+import {Container, Row, Col} from 'react-bootstrap';
+import MainNavbar from '../mainnavbar/mainnavbar';
+import Routes from '../routes/routes';
 
 const App=()=>{
 		return(
 			<div>
-				<BaseLayout />
-				{/*<div>*/}
-					{/*<Header />*/}
-					{/*<Navbar />*/}
-					{/*<BeaconContainer />*/}
-					{/*привет мир*/}
-					
-					{/*пусть всегда будет солнце*/}
-				{/*</div>*/}
+				<Container>
+					<Row>
+						<Col sm={12}>
+							<MainNavbar />
+						</Col>
+						<Col>
+							<Routes />
+						</Col>
+					</Row>
+				</Container>
 			</div>
 		)
 };

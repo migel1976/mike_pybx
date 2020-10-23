@@ -1,11 +1,16 @@
 import * as axios from 'axios';
-import {message} from 'antd';
 
 const instance=axios.create({
       baseURL:"http://localhost:5000/history"
 });
 
 const HistoryApi={
+	getCities(){
+		return instance.get('list-city')
+		  .then((res)=>{
+			  return res.data;
+		  })
+	},
 	getItemsByCity(city){
         return instance.get('?city='+city)
           .then((res)=>{
@@ -18,8 +23,9 @@ const HistoryApi={
 			.then((res)=>{
 				debugger;
 				console.log('data was success added',res.data);
-				message.success('data was success added to mongodb');
+
 			})
 	}
 };
+
 export default HistoryApi;
