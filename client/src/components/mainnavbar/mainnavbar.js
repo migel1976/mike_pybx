@@ -12,10 +12,17 @@ const MainNavbar=()=>{
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link>
-					  <NavLink to='/data/stat'>History Data</NavLink>
-					</Nav.Link>
-                  <Nav.Link href="/data/pybx">Pybx Data</Nav.Link>
+				  <Nav.Link>
+					  <NavLink to='/'>Temp Data</NavLink>
+		          </Nav.Link>
+
+				  {/*<Nav.Link>*/}
+					  {/*<NavLink to='/data/stat'>History Data</NavLink>*/}
+				  {/*</Nav.Link>*/}
+                  {/*<Nav.Link>*/}
+					  {/*<NavLink to="/data/pybx">Pybx Data</NavLink>*/}
+				  {/*</Nav.Link>*/}
+		
                   {/*<NavDropdown title="Dropdown" id="basic-nav-dropdown">*/}
                     {/*<NavDropdown.Item>Action</NavDropdown.Item>*/}
                     {/*<NavDropdown.Item>Another action</NavDropdown.Item>*/}

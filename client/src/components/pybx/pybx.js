@@ -158,7 +158,7 @@ function Pybx() {
 	    </div>
 		{/*<h1>{update_c}</h1>*/}
 		{/*<Button onClick={onClick}>PRESS</Button>*/}
-		<Button onClick={setData}>Save Data</Button>
+		{/*<Button onClick={setData}>Save Data</Button>*/}
 	    </div>);
 }
 
