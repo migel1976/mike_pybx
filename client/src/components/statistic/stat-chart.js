@@ -38,7 +38,7 @@ const ValueLabel = (props) => {
   return (
     <ValueAxis.Label
       {...props}
-      text={`${text}%`}
+      text={`${text}C`}
     />
   );
 };
@@ -105,7 +105,7 @@ export default class StatChart extends React.PureComponent {
           {/*/>*/}
           <Legend position="bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />
           <Title
-            text={`Confidence in Institutions in American society ${'\n'}(Great deal)`}
+            // text={`Confidence in Institutions in American society ${'\n'}(Great deal)`}
           />
           <Animation />
         </Chart>
