@@ -25,8 +25,8 @@ const PORT=config.get('port')||5000;
 
 async function start(){
 	try{
-		// await mongoose.connect(config.get('mongoUri'),{
-		await mongoose.connect(config.get('cloudMongoUri'),{
+		await mongoose.connect(config.get('mongoUri'),{
+		// await mongoose.connect(config.get('cloudMongoUri'),{
 			useNewUrlParser:true,
 			useUnifiedTopology:true,
 			useCreateIndex:true

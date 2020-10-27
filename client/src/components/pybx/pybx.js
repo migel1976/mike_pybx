@@ -62,7 +62,24 @@ function Pybx() {
 
 	const  setData=async()=> {
 		try {
-			const res = await axios.post('http://localhost:5000/history/add',rows);
+			let arrObj=[];
+			rows.forEach(function(item, i, arr) {
+			  // console.log( i + ": " + item + " (массив:" + arr + ")" );
+			  console.log('count',update_c);
+			  console.log('city',item.city);
+			  console.log('state',item.state);
+			  console.log('temp',item.temp);
+			  const obj={'count':update_c,
+						 'city':item.city,
+						 'state':item.state,
+						 'temp':item.temp};
+			  arrObj.push(obj);
+			});
+			// const {city,state,temp}=rows[0];
+			debugger;
+			console.log(arrObj);
+			// const res = await axios.post('http://localhost:5000/history/add',rows);
+			const res = await axios.post('http://localhost:5000/history/add',arrObj);
 			const data= await res.json();
 			if(!res.ok){
 				throw new Error(data.message);
@@ -98,10 +115,11 @@ function Pybx() {
 
 	React.useEffect(()=>{
 		console.log('rows is ',rows);	
+		setData();
 	},[rows]);
 
 	React.useEffect(()=>{
-		debugger;
+		// debugger;
 		if(update_c!==0 && countUpdateData===1){
 			updateData();
 		}

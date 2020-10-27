@@ -1,6 +1,6 @@
 const {Schema,model}=require('mongoose');
 const schema=new Schema({
-		update_c:{type:Number},
+		count:{type:Number},
 		city:{type:String},
 		state:{type:String},
 		temp:{type:Number}

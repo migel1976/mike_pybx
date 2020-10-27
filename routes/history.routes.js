@@ -26,7 +26,7 @@ router.post('/add',
 		try{
 			// const {update_c,city,state,temp}=req.body;
 			// const history=new History({update_c,city,state,temp});
-			const {city,state,temp}=req.body;
+			// const {city,state,temp}=req.body;
 			console.log(req.body);
 			History.insertMany(req.body);			
 			// const history=new History({city,state,temp});

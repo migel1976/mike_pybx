@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getHistoryItems,getCities} from '../../redux/historyReducer';
 import Stat from './stat';
+import StatChart from './stat-chart';
 
 class StatContainer extends React.Component{
 	componentDidMount=()=>{
@@ -15,7 +16,12 @@ class StatContainer extends React.Component{
 		console.log('props.items',this.props.items);
 		// debugger;
 		return(
-			<Stat 
+			// <Stat 
+				 // items={this.props.items}
+				 // cities={this.props.cities}
+				 // getHistoryItems={this.props.getHistoryItems}
+			// />
+			<StatChart 
 				 items={this.props.items}
 				 cities={this.props.cities}
 				 getHistoryItems={this.props.getHistoryItems}
