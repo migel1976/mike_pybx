@@ -87,7 +87,8 @@ export default class StatChart extends React.PureComponent {
 			  <LineSeries
 				name="City"
 				valueField="temp"
-				argumentField="count"
+				// argumentField="count"
+				argumentField="date"
 			  />
 		  </Plugin>
           <Legend position="bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />

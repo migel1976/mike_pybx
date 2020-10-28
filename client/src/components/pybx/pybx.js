@@ -49,18 +49,22 @@ function Pybx() {
 			let arrObj=[];
 			rows.forEach(function(item, i, arr) {
 			  // console.log( i + ": " + item + " (массив:" + arr + ")" );
+			  var now=new Date();	
+			  console.log('дата',now);
 			  console.log('count',update_c);
 			  console.log('city',item.city);
 			  console.log('state',item.state);
 			  console.log('temp',item.temp);
-			  const obj={'count':update_c,
+			  const obj={
+						 'date':now,
+						 'count':update_c,
 						 'city':item.city,
 						 'state':item.state,
 						 'temp':item.temp};
 			  arrObj.push(obj);
 			});
 			// const {city,state,temp}=rows[0];
-			debugger;
+			// debugger;
 			console.log(arrObj);
 			// const res = await axios.post('http://localhost:5000/history/add',rows);
 			const res = await axios.post('http://localhost:5000/history/add',arrObj);
@@ -99,7 +103,7 @@ function Pybx() {
 
 	React.useEffect(()=>{
 		console.log('rows is ',rows);	
-	// setData();
+	setData();
 	},[rows]);
 
 	React.useEffect(()=>{
@@ -142,7 +146,7 @@ function Pybx() {
 	    </div>
 		{/*<h1>{update_c}</h1>*/}
 		{/*<Button onClick={onClick}>PRESS</Button>*/}
-		<Button onClick={setData}>Save Data</Button>
+		{/*<Button onClick={setData}>Save Data</Button>*/}
 	    </div>);
 }
 
