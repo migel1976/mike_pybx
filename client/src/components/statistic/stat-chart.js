@@ -14,7 +14,9 @@ import SelectCity from './select-city/select-city';
 
 // import { confidence as data } from './data-chart';
 
-const format = () => tick => tick;
+const format = () =>((tick)=>(
+	tick
+));
 const Root = props => (
   <Legend.Root
     {...props}
@@ -78,7 +80,12 @@ export default class StatChart extends React.PureComponent {
           data={this.props.items}
           className="pr-3"
         >
-          <ArgumentAxis tickFormat={format} />
+		  <ArgumentAxis 
+			// tickInterval='hour'
+			tickInterval='minute'
+		    // minorTickInterval={2}
+			tickFormat={format}
+		  />
           <ValueAxis
             max={50}
             labelComponent={ValueLabel}

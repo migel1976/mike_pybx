@@ -14,7 +14,10 @@ const historyReducer=(state=initialState,action)=>{
 			let arrObj=[];
 			action.items.forEach(function(item,i,arr){
 				debugger;
-				var date=moment(item.date).format('hh:mm:ss');
+				var date=moment(item.date).format('YYYY/MM/HH hh:mm:ss');
+				// var date=moment(item.date).format('hh:mm:ss');
+				var date=new Date(date);
+				// var date=new Date(item.date);
 				// date=date.toLocaleDateString("en-US",{hour:'numeric',minute:'numeric',second:'numeric'});
 				const obj={
 							'date':date,
