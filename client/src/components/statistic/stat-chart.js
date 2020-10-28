@@ -8,6 +8,7 @@ import {
   Legend,
 } from '@devexpress/dx-react-chart-bootstrap4';
 import { Animation } from '@devexpress/dx-react-chart';
+import { Plugin } from '@devexpress/dx-react-core';
 import SelectCity from './select-city/select-city';
 // import { LineSeries } from '@devexpress/dx-react-chart-material-ui';
 
@@ -66,12 +67,12 @@ export default class StatChart extends React.PureComponent {
 	  ));
     return (
       <div className="card">
-		  {/*<div>*/}
-			{/*<SelectCity */}
-				{/*options={options}*/}
-				{/*changeSelectCity={changeSelectCity}*/}
-			{/*/>*/}
-		  {/*</div>*/}
+		  <div>
+			<SelectCity 
+				options={options}
+				changeSelectCity={changeSelectCity}
+			/>
+		  </div>
         <Chart
           // data={chartData}
           data={this.props.items}
@@ -82,32 +83,15 @@ export default class StatChart extends React.PureComponent {
             max={50}
             labelComponent={ValueLabel}
           />
-
-		  <LineSeries
-			name="City"
-			valueField="temp"
-			argumentField="count"
-		  />
-          {/*<LineSeries*/}
-            {/*name="TV news"*/}
-            {/*valueField="tvNews"*/}
-            {/*argumentField="year"*/}
-          {/*/>*/}
-          {/*<LineSeries*/}
-            {/*name="Church"*/}
-            {/*valueField="church"*/}
-            {/*argumentField="year"*/}
-          {/*/>*/}
-          {/*<LineSeries*/}
-            {/*name="Military"*/}
-            {/*valueField="military"*/}
-            {/*argumentField="year"*/}
-          {/*/>*/}
+          <Plugin name='ser'>
+			  <LineSeries
+				name="City"
+				valueField="temp"
+				argumentField="count"
+			  />
+		  </Plugin>
           <Legend position="bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />
-          <Title
-            // text={`Confidence in Institutions in American society ${'\n'}(Great deal)`}
-          />
-          <Animation />
+		   {/*<Animation />*/}
         </Chart>
       </div>
     );

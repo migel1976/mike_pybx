@@ -44,22 +44,6 @@ class ObserverI extends Blotter.Observer
 	
 
 function Pybx() {
-
-	// const message=useMessage();
-	// const {loading,error,request,clearError}=useHttp();
-
-	// const setData=async()=>{
-	// 		try{
-	// 		  const data=await request('/history/add','POST',rows);
-	// 		  console.log('data: ',data);
-	// 		  message(data.message);
-	// 		}
-	// 		catch(e)
-	// 		{
-	// 		  console.log('catch in register handler',e);
-	// 		}
-	// };
-
 	const  setData=async()=> {
 		try {
 			let arrObj=[];
@@ -115,7 +99,7 @@ function Pybx() {
 
 	React.useEffect(()=>{
 		console.log('rows is ',rows);	
-		setData();
+	// setData();
 	},[rows]);
 
 	React.useEffect(()=>{
@@ -158,7 +142,7 @@ function Pybx() {
 	    </div>
 		{/*<h1>{update_c}</h1>*/}
 		{/*<Button onClick={onClick}>PRESS</Button>*/}
-		{/*<Button onClick={setData}>Save Data</Button>*/}
+		<Button onClick={setData}>Save Data</Button>
 	    </div>);
 }
 
