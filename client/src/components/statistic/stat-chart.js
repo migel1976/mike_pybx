@@ -1,21 +1,23 @@
 import * as React from 'react';
 import {
   Chart,
-  ArgumentAxis,
   ValueAxis,
   Title,
   LineSeries,
   Legend,
 } from '@devexpress/dx-react-chart-bootstrap4';
 import { Animation } from '@devexpress/dx-react-chart';
+// import { ArgumentAxis } from '@devexpress/dx-react-chart';
+import { ArgumentAxis } from '@devexpress/dx-react-chart-bootstrap4';
 import { Plugin } from '@devexpress/dx-react-core';
 import SelectCity from './select-city/select-city';
+import moment from 'moment'
 // import { LineSeries } from '@devexpress/dx-react-chart-material-ui';
 
 // import { confidence as data } from './data-chart';
 
 const format = () =>((tick)=>(
-	tick
+	tick=moment(tick).format('hh:mm:ss')
 ));
 const Root = props => (
   <Legend.Root
@@ -81,10 +83,11 @@ export default class StatChart extends React.PureComponent {
           className="pr-3"
         >
 		  <ArgumentAxis 
-			// tickInterval='hour'
 			tickInterval='minute'
-		    // minorTickInterval={2}
 			tickFormat={format}
+		    tickSize={10}
+			positon={'right'}
+			// showTicks='false'
 		  />
           <ValueAxis
             max={50}
