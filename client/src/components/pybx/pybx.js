@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import * as axios from 'axios';
+import CustomCellContainer from './custom-cell/custom-cell-container';
 // import {Button} from 'antd';
 // import {useHttp} from './hooks/http.hook';
 // import {useMessage} from './hooks/message.hook';
@@ -135,13 +136,15 @@ function Pybx() {
 	    <GroupingState />
 	    <DragDropProvider />
 	    <IntegratedGrouping />
-	    <Table cellComponent={CustomCell}/>
+		{/*<Table cellComponent={CustomCell}/>*/}
+		<Table cellComponent={CustomCellContainer} />
 	    <TableHeaderRow />
 	    <TableGroupRow />
 	    <TableColumnReordering order={columnOrder} onOrderChange={setColumnOrder} />
 	    <Toolbar />
             <GroupingPanel />
 		{/*<VirtualTable cellComponent={CustomCell} />*/}
+		<VirtualTable cellComponent={CustomCellContainer} />
 	    </Grid>
 	    </div>
 		{/*<h1>{update_c}</h1>*/}
@@ -151,15 +154,15 @@ function Pybx() {
 }
 
 
-const CustomCell=(props)=>{
-		return (
-		  <VirtualTable.Cell
-			{...props}
-			onClick={() =>{
-			 console.log(props.value);
-			}
-			}
-		  />
-		);
-	}   
+// const CustomCell=(props)=>{
+// 		return (
+		  {/*<VirtualTable.Cell*/}
+			{/*{...props}*/}
+			{/*onClick={() =>{*/}
+			 {/*console.log(props.value);*/}
+			{/*}*/}
+			{/*}*/}
+		  {/*/>*/}
+		// );
+	// }   
 export default Pybx;

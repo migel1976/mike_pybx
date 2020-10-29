@@ -71,12 +71,12 @@ export default class StatChart extends React.PureComponent {
 	  ));
     return (
       <div className="card">
-		  <div>
-			<SelectCity 
-				options={options}
-				changeSelectCity={changeSelectCity}
-			/>
-		  </div>
+		  {/*<div>*/}
+			{/*<SelectCity */}
+				{/*options={options}*/}
+				{/*changeSelectCity={changeSelectCity}*/}
+			{/*/>*/}
+		  {/*</div>*/}
         <Chart
           // data={chartData}
           data={this.props.items}
