@@ -44,9 +44,12 @@ class ObserverI extends Blotter.Observer
 };
 	
 
-function Pybx() {
+function Pybx(props) {
+// export const Pybx=(props)=>{
 	const  setData=async()=> {
 		try {
+			// debugger;
+			console.log(props);
 			let arrObj=[];
 			rows.forEach(function(item, i, arr) {
 			  // console.log( i + ": " + item + " (массив:" + arr + ")" );
@@ -105,6 +108,9 @@ function Pybx() {
 	React.useEffect(()=>{
 		console.log('rows is ',rows);	
 	setData();
+	// debugger;
+		console.log(props);
+    props.getHistoryItems(props.city);	
 	},[rows]);
 
 	React.useEffect(()=>{
@@ -152,17 +158,4 @@ function Pybx() {
 		{/*<Button onClick={setData}>Save Data</Button>*/}
 	    </div>);
 }
-
-
-// const CustomCell=(props)=>{
-// 		return (
-		  {/*<VirtualTable.Cell*/}
-			{/*{...props}*/}
-			{/*onClick={() =>{*/}
-			 {/*console.log(props.value);*/}
-			{/*}*/}
-			{/*}*/}
-		  {/*/>*/}
-		// );
-	// }   
 export default Pybx;

@@ -1,24 +1,28 @@
 import React from 'react';
 import CustomCell from './custom-cell';
 import {connect} from 'react-redux';
-import {getHistoryItems,getCities} from '../../../redux/historyReducer';
+import {getHistoryItems,getCities,setCity} from '../../../redux/historyReducer';
 
 class CustomCellContainer extends React.Component{
 	render(){
 		return(
 			<CustomCell 
 			props={this.props}
+			city={this.props.city}
+			setCity={this.props.city}
 			/>
 		)
 	}
 };
 
 const mapStateToProps=(state)=>({
-	  items:state.historyPage.items
+	  items:state.historyPage.items,
+	  city:state.historyPage.city
 	});
 
 const mapActionsToProps=({
-	getHistoryItems
+	getHistoryItems,
+	setCity
 });
 
 export default connect(mapStateToProps,mapActionsToProps)(CustomCell);

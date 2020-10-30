@@ -2,14 +2,18 @@ import HistoryApi from '../api/history';
 import moment from 'moment'
 const initialState={
 	items:[],
-	cities:[]
+	cities:[],
+	city:'Boston'
 }
 
 const SET_ITEMS='SET_ITEMS';
 const SET_CITIES='SET_CITIES';
+const SET_CITY='SET_CITY';
 
 const historyReducer=(state=initialState,action)=>{
 	switch(action.type){
+		case SET_CITY:
+            return{...state,city:action.city}
 		case SET_ITEMS:
 			let arrObj=[];
 			action.items.forEach(function(item,i,arr){
@@ -51,6 +55,10 @@ const setItems=(items)=>({
 const setCities=(cities)=>({
 			type:SET_CITIES,
 			cities});
+
+export const setCity=(city)=>({
+			type:SET_CITY,
+			city});
 
 export const getHistoryItems=(city)=>{
 		return (dispatch)=>{
