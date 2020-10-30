@@ -25,6 +25,7 @@ class StatContainer extends React.Component{
 				 items={this.props.items}
 				 cities={this.props.cities}
 				 getHistoryItems={this.props.getHistoryItems}
+				 city={this.props.city}
 			/>
 		)
 	}
@@ -32,7 +33,8 @@ class StatContainer extends React.Component{
 
 const mapStateToProps=(state)=>({
 	items:state.historyPage.items,
-	cities:state.historyPage.cities
+	cities:state.historyPage.cities,
+	city:state.historyPage.city
 });
 
 const mapActionsToProps=({

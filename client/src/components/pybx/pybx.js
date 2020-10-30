@@ -150,7 +150,7 @@ function Pybx(props) {
 	    <Toolbar />
             <GroupingPanel />
 		{/*<VirtualTable cellComponent={CustomCell} />*/}
-		<VirtualTable cellComponent={CustomCellContainer} />
+		{/*<VirtualTable cellComponent={CustomCellContainer} />*/}
 	    </Grid>
 	    </div>
 		{/*<h1>{update_c}</h1>*/}
