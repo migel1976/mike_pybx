@@ -9,6 +9,7 @@ class PybxContainer extends React.Component{
 				<Pybx
 					city={this.props.city}
 					getHistoryItems={this.props.getHistoryItems}
+				    timeRefresh={this.props.timeRefresh}
 				/>
 			)
 		}
@@ -16,7 +17,8 @@ class PybxContainer extends React.Component{
 
 const mapStateToProps=(state)=>({
 	  items:state.historyPage.items,
-	  city:state.historyPage.city
+	  city:state.historyPage.city,
+	  timeRefresh:state.historyPage.timeRefresh
 });
 	
 const mapActionsToProps=({

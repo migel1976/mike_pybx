@@ -1,5 +1,6 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
+import SelectRefresh from './select-refresh/select-refresh';
 
 const PlotChart=(props)=>{
 		function unpack(rows, key) {
@@ -36,8 +37,26 @@ const PlotChart=(props)=>{
 		  }
 		}
 		};
+	const changeTimeRefresh=(e)=>{
+		// debugger;
+		const time=e.target.value;
+		// alert('time is '+ time);
+		props.setTimeRefresh(time);
+	};
+	// const arrayTimeRefresh=[5,10,20];
+	// const options=arrayTimeRefresh.map(el=>(
+	const options=props.timeRefreshArray.map(el=>(
+			<option>
+				{el}
+		    </option>));
 	return (
 		<div className='card'>
+		 <div>
+			<SelectRefresh
+				options={options}
+			    changeTimeRefresh={changeTimeRefresh}
+			/>
+		 </div>
 		  <Plot
 			className='pr-3'
 			data={[

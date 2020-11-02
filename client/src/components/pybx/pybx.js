@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import * as axios from 'axios';
 import CustomCellContainer from './custom-cell/custom-cell-container';
+import { useTimer,useStopwatch } from 'react-timer-hook';
 // import {Button} from 'antd';
 // import {useHttp} from './hooks/http.hook';
 // import {useMessage} from './hooks/message.hook';
@@ -46,6 +47,33 @@ class ObserverI extends Blotter.Observer
 
 function Pybx(props) {
 // export const Pybx=(props)=>{
+	//
+	const restartTimer=(second)=>{
+			const time = new Date();
+			time.setSeconds(time.getSeconds() + seconds);
+			restart(time)
+	};
+	  const time = new Date();
+	  // const expiryTimestamp=time.setSeconds(time.getSeconds() + 10); // 10 minutes timer
+	  const expiryTimestamp=time.setSeconds(time.getSeconds() + Number(props.timeRefresh)); // 10 minutes timer
+	// const expiryTimestamp=1; 
+	  const {
+		seconds,
+		minutes,
+		hours,
+		days,
+		isRunning,
+		start,
+		pause,
+		resume,
+		restart,
+	  } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
+	  // } = useTimer();
+	  // } = useTimer({ expiryTimestamp, onExpire: () => props.getHistoryItems) });
+	
+		
+		  
+
 	const  setData=async()=> {
 		try {
 			// debugger;
@@ -106,11 +134,29 @@ function Pybx(props) {
     }, []);
 
 	React.useEffect(()=>{
+		if(!isRunning){
+			debugger;
+			const time = new Date();
+			// time.setSeconds(time.getSeconds() + 10);
+			time.setSeconds(time.getSeconds() + Number(props.timeRefresh));
+			restart(time)
+			props.getHistoryItems(props.city);	
+		}
+			// alert('hi');
+	},[isRunning]);
+
+	React.useEffect(()=>{
+		const time = new Date();
+		time.setSeconds(time.getSeconds() + Number(props.timeRefresh));
+		// alert(time);
+		restart(time)
+	},[props.timeRefresh]);
+
+	React.useEffect(()=>{
 		console.log('rows is ',rows);	
 	setData();
-	// debugger;
-		console.log(props);
-    props.getHistoryItems(props.city);	
+	console.log(props);
+    // props.getHistoryItems(props.city);	
 	},[rows]);
 
 	React.useEffect(()=>{
@@ -153,6 +199,16 @@ function Pybx(props) {
 		{/*<VirtualTable cellComponent={CustomCellContainer} />*/}
 	    </Grid>
 	    </div>
+		<p>{isRunning ? 'Running' : 'Not running'}</p>
+		{/*<button onClick={start}>Start</button>*/}
+	    <button onClick={() => {
+			const time = new Date();
+			time.setSeconds(time.getSeconds() + 10);
+			restart(time)
+		  }}>Restart</button>
+		<div style={{fontSize: '10px'}}>
+         <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+        </div>
 		{/*<h1>{update_c}</h1>*/}
 		{/*<Button onClick={onClick}>PRESS</Button>*/}
 		{/*<Button onClick={setData}>Save Data</Button>*/}

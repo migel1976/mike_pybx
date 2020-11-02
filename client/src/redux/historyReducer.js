@@ -3,15 +3,21 @@ import moment from 'moment'
 const initialState={
 	items:[],
 	cities:[],
-	city:'Boston'
+	city:'Boston',
+	timeRefresh:5,
+	timeRefreshArray:[5,10,20]
 }
 
+// const SET_TIME_REFRESH_ARRAY='SET_TIME_REFRESH_ARRAY';
+const SET_TIME_REFRESH='SET_TIME_REFRESH';
 const SET_ITEMS='SET_ITEMS';
 const SET_CITIES='SET_CITIES';
 const SET_CITY='SET_CITY';
 
 const historyReducer=(state=initialState,action)=>{
 	switch(action.type){
+		case SET_TIME_REFRESH:
+			return {...state,timeRefresh:action.time}
 		case SET_CITY:
             return{...state,city:action.city}
 		case SET_ITEMS:
@@ -59,6 +65,10 @@ const setCities=(cities)=>({
 export const setCity=(city)=>({
 			type:SET_CITY,
 			city});
+
+export const setTimeRefresh=(time)=>({
+			type:SET_TIME_REFRESH,
+			time});
 
 export const getHistoryItems=(city)=>{
 		return (dispatch)=>{
