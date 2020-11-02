@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getHistoryItems,getCities} from '../../redux/historyReducer';
 import Stat from './stat';
 import StatChart from './stat-chart';
+import PlotChart from './plot-chart';
 
 class StatContainer extends React.Component{
 	componentDidMount=()=>{
@@ -14,19 +15,17 @@ class StatContainer extends React.Component{
 
 	render(){
 		console.log('props.items',this.props.items);
-		// debugger;
 		return(
-			// <Stat 
-				 // items={this.props.items}
-				 // cities={this.props.cities}
-				 // getHistoryItems={this.props.getHistoryItems}
-			// />
-			<StatChart 
+			<PlotChart 
 				 items={this.props.items}
-				 cities={this.props.cities}
-				 getHistoryItems={this.props.getHistoryItems}
 				 city={this.props.city}
 			/>
+			// {/*<StatChart */}
+				 // {/*items={this.props.items}*/}
+				 // {/*cities={this.props.cities}*/}
+				 // {/*getHistoryItems={this.props.getHistoryItems}*/}
+				 // {/*city={this.props.city}*/}
+			// {/*/>*/}
 		)
 	}
 };

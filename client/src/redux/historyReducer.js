@@ -17,7 +17,7 @@ const historyReducer=(state=initialState,action)=>{
 		case SET_ITEMS:
 			let arrObj=[];
 			action.items.forEach(function(item,i,arr){
-				debugger;
+				// debugger;
 				var date=moment(item.date).format('YYYY/MM/HH hh:mm:ss');
 				// var date=moment(item.date).format('hh:mm:ss');
 				var date=new Date(date);
