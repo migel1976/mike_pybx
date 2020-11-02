@@ -199,13 +199,13 @@ function Pybx(props) {
 		{/*<VirtualTable cellComponent={CustomCellContainer} />*/}
 	    </Grid>
 	    </div>
-		<p>{isRunning ? 'Running' : 'Not running'}</p>
+		{/*<p>{isRunning ? 'Running' : 'Not running'}</p>*/}
 		{/*<button onClick={start}>Start</button>*/}
-	    <button onClick={() => {
-			const time = new Date();
-			time.setSeconds(time.getSeconds() + 10);
-			restart(time)
-		  }}>Restart</button>
+		{/*<button onClick={() => {*/}
+			{/*const time = new Date();*/}
+			{/*time.setSeconds(time.getSeconds() + 10);*/}
+			{/*restart(time)*/}
+		  {/*}}>Restart</button>*/}
 		<div style={{fontSize: '10px'}}>
          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
         </div>
